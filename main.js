@@ -46,7 +46,7 @@ client.on('message', message =>{
         client.commands.get('iseul').execute(message, args, Discord);
     }else if(command === 'whois jaehyuk' || command === 'whois jaehyuk lee'){
         client.commands.get('jaehyuk').execute(message, args, Discord);
-    }else if(command === 'whois jeonjsu' || command === 'whois jeonjsu lee'){
+    }else if(command === 'whois jeongsu' || command === 'whois jeongsu lee'){
         client.commands.get('jeonjsu').execute(message, args, Discord);
     }else if(command === 'whois jihye' || command === 'whois jihye lee'){
         client.commands.get('jihye').execute(message, args, Discord);
@@ -62,7 +62,7 @@ client.on('message', message =>{
         client.commands.get('kleinbrothers').execute(message, args, Discord);
     }else if(command === 'whois seongha' || command === 'whois seongha park'){
         client.commands.get('seongha').execute(message, args, Discord);
-    }else if(command === 'whois seongik' || command === 'whois seongik han' || command === 'whois han'){
+    }else if(command === 'whois seongik' || command === 'whois seongik han' || command === 'whois han' || command === 'whois kfcdean'){
         client.commands.get('seongik').execute(message, args, Discord);
     }else if(command === 'help'){
         client.commands.get('help').execute(message, args, Discord);
