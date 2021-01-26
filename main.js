@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const got = require('got');
+const cleverbot = require("cleverbot-free");
  
 const prefix = '-';
  
@@ -97,6 +98,8 @@ client.on('message', message =>{
             embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`)
             message.channel.send(embed);
         })
+    }else{
+        cleverbot(command).then(response => message.channel.send(response));
     }
 });
  
