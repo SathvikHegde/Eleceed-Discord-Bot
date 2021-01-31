@@ -99,7 +99,7 @@ client.on('message', message =>{
             message.channel.send(embed);
         })
     }else{
-        cleverbot(command, ["Your name is Inhyuk from now on", "OK."]).then(response => message.channel.send(response));
+        cleverbot(command, ["Your name is 'Inhyuk' from now on.", "OK."]).then(response => message.channel.send(response));
     }
 });
  
