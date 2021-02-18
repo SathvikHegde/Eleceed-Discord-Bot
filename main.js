@@ -19,6 +19,13 @@ for(const file of commandFiles){
  
 client.once('ready', () => {
     console.log('Bot is online!');
+    client.user.setPresence({
+        status: "online",  // You can show online, idle... Do not disturb is dnd
+        game: {
+            name: "Kicking Kayden's Ass",  
+            type: "PLAYING" 
+        }
+    });
 });
  
 client.on('message', message =>{
