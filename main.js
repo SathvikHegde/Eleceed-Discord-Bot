@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const got = require('got');
 const cleverbot = require("cleverbot-free");
+const DIG = require("discord-image-generation");
  
 const prefix = '-';
  
@@ -19,13 +20,6 @@ for(const file of commandFiles){
  
 client.once('ready', () => {
     console.log('Bot is online!');
-    client.user.setPresence({
-        status: "online",  
-        game: {
-            name: "Kicking Kayden's Ass",  
-            type: "PLAYING" 
-        }
-    });
 });
  
 client.on('message', message =>{
@@ -33,6 +27,8 @@ client.on('message', message =>{
  
     const args = message.content.slice(prefix.length).split();
     const command = args.shift().toLowerCase();
+    const actualargs = message.content.slice(prefix.length).split(/ +/);
+    const actualcommand = args.shift().toLowerCase();
     
     console.log(command);
     console.log(args);
@@ -105,7 +101,13 @@ client.on('message', message =>{
             embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`)
             message.channel.send(embed);
         })
-    }else{
+    }else if(actualcommand === 'greyscale'){
+        let avatar = actualargs[0].displayAvatarURL({ dynamic: false, format: 'png' });
+        let img = await new DIG.Greyscale().getImage(avatar)
+        let attach = new Discord.MessageAttachment(img, "delete.png");;
+        message.channel.send(attach);
+    }
+    else{
         cleverbot(command, ["Your name is 'Inhyuk' from now on.", "OK."]).then(response => message.channel.send(response));
     }
 });
