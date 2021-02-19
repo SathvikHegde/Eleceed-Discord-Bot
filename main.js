@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const got = require('got');
 const cleverbot = require("cleverbot-free");
-const DIG = require("discord-image-generation");
  
 const prefix = '-';
  
@@ -101,13 +100,7 @@ client.on('message', message =>{
             embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`)
             message.channel.send(embed);
         })
-    }else if(actualcommand === 'greyscale'){
-        let avatar = actualargs[0].displayAvatarURL({ dynamic: false, format: 'png' });
-        let img = await new DIG.Greyscale().getImage(avatar)
-        let attach = new Discord.MessageAttachment(img, "delete.png");;
-        message.channel.send(attach);
-    }
-    else{
+    }else{
         cleverbot(command, ["Your name is 'Inhyuk' from now on.", "OK."]).then(response => message.channel.send(response));
     }
 });
