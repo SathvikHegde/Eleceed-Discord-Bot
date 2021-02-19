@@ -26,8 +26,6 @@ client.on('message', message =>{
  
     const args = message.content.slice(prefix.length).split();
     const command = args.shift().toLowerCase();
-    const actualargs = message.content.slice(prefix.length).split(/ +/);
-    const actualcommand = args.shift().toLowerCase();
     
     console.log(command);
     console.log(args);
