@@ -30,7 +30,8 @@ client.on('message', async message =>{
     const args = message.content.slice(prefix.length).split();
     const command = args.shift().toLowerCase();
     
-    const messagelol = message.content.shift().toLowerCase();
+    const messagelmao = message.content;
+    const messagelol = messagelmao.shift().toLowerCase();
 
     if(messagelol.includes('lol') || messagelol.includes('lmao')){
         const lollevels = await Levels.appendXp(message.author.id, message.guild.id, 100);
