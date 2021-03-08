@@ -33,7 +33,8 @@ client.on('message', async message =>{
     const messagelol = message.content.toLowerCase();
 
     if(messagelol.includes('lol') || messagelol.includes('lmao')){
-        const lollevels = await Levels.appendXp(message.author.id, message.guild.id, 100);
+        const lolxp = await Levels.appendXp(message.author.id, message.guild.id, 1);
+        const lollevel = await Levels.appendLevel(message.author.id, message.guild.id, 1);
     }
     
     console.log(command);
@@ -117,7 +118,7 @@ client.on('message', async message =>{
             embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`)
             message.channel.send(embed);
         })
-    }else{
+    }else if(message.content.startsWith(prefix)){
         cleverbot(command, ["Your name is 'Inhyuk' from now on.", "OK."]).then(response => message.channel.send(response));
     }
 });
