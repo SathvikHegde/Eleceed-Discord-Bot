@@ -29,9 +29,8 @@ client.on('message', async message =>{
  
     const args = message.content.slice(prefix.length).split();
     const command = args.shift().toLowerCase();
-    
-    const messagelmao = message.content;
-    const messagelol = messagelmao.toLowerCase();
+     
+    const messagelol = message.content.toLowerCase();
 
     if(messagelol.includes('lol') || messagelol.includes('lmao')){
         const lollevels = await Levels.appendXp(message.author.id, message.guild.id, 100);
@@ -96,9 +95,10 @@ client.on('message', async message =>{
         message.channel.send(`> **${target.tag}** has used lol/lmao ${user.level} times.`);
     }else if(command === 'leaderboard'){
         const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);
-        if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
+        if (rawLeaderboard.length < 1) return message.reply("Nobody's in leaderboard yet.");
         const leaderboard = await Levels.computeLeaderboard(client, rawLeaderboard, true);
         const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nlol's: ${e.level}`);
+        message.channel.send(`**Leaderboard**:\n\n${lb.join("\n\n")}\nXP: ${e.xp.toLocaleString()}`);
     }else if(command === 'meme'){
         const embed = new Discord.MessageEmbed()
         got('https://www.reddit.com/r/Animemes/random/.json').then(response => {
