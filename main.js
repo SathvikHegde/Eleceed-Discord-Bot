@@ -98,8 +98,8 @@ client.on('message', async message =>{
         const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);
         if (rawLeaderboard.length < 1) return message.reply("Nobody's in leaderboard yet.");
         const leaderboard = await Levels.computeLeaderboard(client, rawLeaderboard, true);
-        const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nlol's: ${e.level}`);
-        message.channel.send(`**Leaderboard**:\n\n${lb.join("\n\n")}\nXP: ${e.xp.toLocaleString()}`);
+        const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nlol's: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
+        message.channel.send(`**Leaderboard**:\n\n${lb.join("\n\n")}`);
     }else if(command === 'meme'){
         const embed = new Discord.MessageEmbed()
         got('https://www.reddit.com/r/Animemes/random/.json').then(response => {
