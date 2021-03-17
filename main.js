@@ -122,5 +122,10 @@ client.on('message', async message =>{
         cleverbot(command, ["Your name is 'Inhyuk' from now on.", "OK."]).then(response => message.channel.send(response));
     }
 });
+const http = require('http');
+const server = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('ok');
+});
  
 client.login(process.env.token);
