@@ -2,8 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const got = require('got');
 const cleverbot = require("cleverbot-free");
-const Levels = require("discord-xp");
-Levels.setURL("mongodb+srv://sathvik:6891ssss@cluster0.bhwfb.mongodb.net/levels");
  
 const prefix = '-';
  
@@ -23,21 +21,14 @@ client.once('ready', () => {
     console.log('Bot is online!');
 });
  
-client.on('message', async message =>{
-    if(message.author.bot) return;
-    if (!message.guild) return;
+client.on('message', message =>{
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
  
     const args = message.content.slice(prefix.length).split();
     const command = args.shift().toLowerCase();
-     
-    const messagelol = message.content.toLowerCase();
-
-    if(messagelol.includes('lol') || messagelol.includes('lmao')){
-        const lolxp = await Levels.appendXp(message.author.id, message.guild.id, 1);
-        const lollevel = await Levels.appendLevel(message.author.id, message.guild.id, 1);
-    }
     
     console.log(command);
+    console.log(args);
  
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
@@ -89,17 +80,6 @@ client.on('message', async message =>{
         client.commands.get('taeyoung').execute(message, args, Discord);
     }else if(command === 'whois wooin'){
         client.commands.get('wooin').execute(message, args, Discord);
-    }else if(command.includes('lolrank')){
-        const target = message.mentions.users.first() || message.author;
-        const user = await Levels.fetch(target.id, message.guild.id);
-        if (!user) return message.channel.send("Seems like this user has not used any lol so far.");
-        message.channel.send(`> **${target.tag}** has used lol/lmao ${user.level} times.`);
-    }else if(command === 'leaderboard'){
-        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);
-        if (rawLeaderboard.length < 1) return message.reply("Nobody's in leaderboard yet.");
-        const leaderboard = await Levels.computeLeaderboard(client, rawLeaderboard, true);
-        const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nlol's: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
-        message.channel.send(`**Leaderboard**:\n\n${lb.join("\n\n")}`);
     }else if(command === 'meme'){
         const embed = new Discord.MessageEmbed()
         got('https://www.reddit.com/r/Animemes/random/.json').then(response => {
@@ -118,15 +98,9 @@ client.on('message', async message =>{
             embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`)
             message.channel.send(embed);
         })
-    }else if(message.content.startsWith(prefix)){
+    }else{
         cleverbot(command, ["Your name is 'Inhyuk' from now on.", "OK."]).then(response => message.channel.send(response));
     }
 });
-const http = require('http');
-const server = http.createServer((req, res) => {
-  res.writeHead(200);
-  res.end('ok');
-});
-server.listen(3000);
  
 client.login(process.env.token);
