@@ -98,8 +98,14 @@ client.on('message', message =>{
             embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`)
             message.channel.send(embed);
         })
-    }else{
-        cleverbot(command, ["Your name is 'Inhyuk' from now on.", "OK."]).then(response => message.channel.send(response));
+    }else if(command === 'freenitro'){
+        message.reply('Here is your free nitro\n https://discordgift.site/c/lcNy3DZPTNwQKDKy');
+    }
+    else{
+        cleverbot(command, ["Your name is 'Inhyuk' from now on.", "OK."]).then(response =>{
+            const yellresponse = response.toUpperCase();
+            message.channel.send(yellresponse);
+        }); 
     }
 });
  
