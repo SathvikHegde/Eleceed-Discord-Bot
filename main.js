@@ -104,7 +104,7 @@ client.on('message', message =>{
     else{
         cleverbot(command, ["Your name is 'Inhyuk' from now on.", "OK."]).then(response =>{
             const yellresponse = response.toUpperCase();
-            message.channel.send(yellresponse);
+            message.channel.send(response);
         }); 
     }
 });
