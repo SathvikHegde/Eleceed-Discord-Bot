@@ -102,7 +102,7 @@ client.on('message', message =>{
         message.reply('Here is your free nitro\n https://discordgift.site/c/lcNy3DZPTNwQKDKy');
     }
     else{
-        cleverbot(command, ["Your name is 'Inhyuk' from now on.", "OK."]).then(response =>{
+        cleverbot(command).then(response =>{
             const yellresponse = response.toUpperCase();
             message.channel.send(response);
         }); 

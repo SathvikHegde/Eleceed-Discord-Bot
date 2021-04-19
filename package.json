@@ -4,7 +4,7 @@
   "description": "Eleceed Discord Bot",
   "main": "main.js",
   "dependencies": {
-    "cleverbot-free": "^1.0.5",
+    "cleverbot-free": "^1.1.1",
     "discord.js": "^12.5.1",
     "got": "^11.8.2"
   },
