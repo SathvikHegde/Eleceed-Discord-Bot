@@ -9,6 +9,9 @@ const prefix = '-';
 const fs = require('fs');
  
 client.commands = new Discord.Collection();
+
+let precommand;
+let preresponse;
  
 const commandFiles = fs.readdirSync('./character_information/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
@@ -27,6 +30,8 @@ client.on('message', message =>{
  
     const command = message.content.slice(prefix.length).toLowerCase();
     
+    console.log(precommand);
+    console.log(preresponse);
     console.log(command);
  
     if(command === 'ping'){
@@ -101,9 +106,11 @@ client.on('message', message =>{
         message.reply('Here is your free nitro\n https://discordgift.site/c/lcNy3DZPTNwQKDKy');
     }
     else{
-        cleverbot(command).then(response =>{
+        cleverbot(command, [precommand, preresponse]).then(response =>{
             const yellresponse = response.toUpperCase();
             message.channel.send(response);
+            precommand = command;
+            preresponse = response;
         }); 
     }
 });
