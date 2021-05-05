@@ -25,11 +25,9 @@ client.once('ready', () => {
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
  
-    const args = message.content.slice(prefix.length);
-    const command = args.shift().toLowerCase();
+    const command = message.content.slice(prefix.length).toLowerCase();
     
     console.log(command);
-    console.log(args);
  
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
