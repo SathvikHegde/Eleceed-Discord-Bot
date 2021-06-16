@@ -106,6 +106,11 @@ client.on('message', message =>{
         })
     }else if(command === 'freenitro'){
         message.reply('Here is your free nitro\n https://discordgift.site/c/lcNy3DZPTNwQKDKy');
+    }else if(command.includes('pfp')){
+        let target = message.mentions.users.first() || message.author;
+        message.channel.send(target.displayAvatarURL());
+    }else if(command === 'bday ted'){
+        message.channel.send("Happy 16th Birthday <@511728797033168899>!!");
     }
     else{
         cleverbot(command, [precommand, preresponse]).then(response =>{
