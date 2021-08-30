@@ -1,19 +1,17 @@
 {
-  "name": "eleceed_discord-bot",
-  "version": "1.0.0",
-  "description": "Eleceed Discord Bot",
+  "name": "eleceed-discord-bot-v2.0",
+  "version": "2.0.0",
+  "description": "The 2.0 version of the bot",
   "main": "main.js",
-  "dependencies": {
-    "cleverbot-free": "^1.1.6",
-    "discord.js": "^12.5.3",
-    "dotenv": "^10.0.0",
-    "got": "^11.8.2"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ."
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "SathvikHegde",
-  "license": "ISC"
+  "author": "Sathvik Hegde",
+  "license": "ISC",
+  "dependencies": {
+    "cleverbot-free": "^1.0.5",
+    "discord.js": "^12.5.1",
+    "mongoose": "^5.12.3",
+    "ms": "^2.1.3"
+  }
 }
