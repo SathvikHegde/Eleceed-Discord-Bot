@@ -12,6 +12,7 @@
     "cleverbot-free": "^1.1.6",
     "discord.js": "^12.5.1",
     "mongoose": "^5.12.3",
+    "dotenv": "^10.0.0",
     "ms": "^2.1.3"
   }
 }
