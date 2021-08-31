@@ -1,8 +1,8 @@
 module.exports = {
-    name: 'ping',
-    alias: ['pong','pi'],
+    name: 'eval',
+    alias: [],
     cooldown: 1,
-    description: "this is a ping command!",
+    description: ".......eval.......",
     execute(message, args, cmd, client, Discord){
         if(message.author.id !== '531358468989517856') return message.reply('Only PeePee can use this command');
         try {
