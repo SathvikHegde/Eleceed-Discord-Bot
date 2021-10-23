@@ -6,7 +6,7 @@ module.exports = {
     cooldown: 1,
     description: "Check your points for black cat game",
     execute(message, args, cmd, client, Discord){
-        const target = message.author || message.mentions.users.first();
+        const target = message.mentions.users.first() || message.author;
 
         User.findOne({
             userID: target.id

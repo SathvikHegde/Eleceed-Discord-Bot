@@ -46,6 +46,8 @@ module.exports = async (Discord, client, message) => {
                         userres.totalpoints = userres.totalpoints + wordres.points;
                         userres.wordsused.push(message.content.toLowerCase());
                         await userres.save().catch(err => console.log(err));
+                    } else {
+                        message.delete();
                     }
                 });
             }
