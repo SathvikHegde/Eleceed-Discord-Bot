@@ -1,7 +1,7 @@
 const cleverbot = require("cleverbot-free");
 module.exports = {
     name: 'talk',
-    alias: [],
+    alias: ["t"],
     cooldown: 1,
     description: "talk with AI using cleverbot api!",
     execute(message, args, cmd, client, Discord){
