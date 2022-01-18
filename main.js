@@ -16,7 +16,7 @@ client.events = new Discord.Collection();
 client.on("guildMemberAdd", member => {
   client.channels.cache.get("875013057208786984").send(`Member joined with name ${member.displayName}`);
   
-  if(member.displayName.includes("RTFKT")) {
+  if(member.displayName.includes("RTFKT") || member.displayName.includes("Random Character Collective")) {
     member.ban();
     client.channels.cache.get("875013057208786984").send(`Banned ${member.displayName}`);
   }
