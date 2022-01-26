@@ -7,6 +7,7 @@ module.exports = async (Discord, client, message) => {
     if(message.author.bot) return;
 
     if(message.content.includes("%hug")) message.reply("Use `-hug` instead.");
+    if(message.content.includes("%pat")) message.reply("Use `-pat` instead.");
 
     if(message.channel.id == "888173757011726366") {
         Words.findOne({
