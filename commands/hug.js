@@ -22,6 +22,7 @@ module.exports = {
     let target = message.mentions.users.first() || message.author;
 
     const embed = new Discord.MessageEmbed()
+    .setColor("RANDOM")
     .setDescription(`<@${hugger.id}> hugged <@${target.id}>`)
     .setImage(gif);
 
