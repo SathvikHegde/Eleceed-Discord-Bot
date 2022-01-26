@@ -6,6 +6,8 @@ module.exports = async (Discord, client, message) => {
     const prefix = '-';
     if(message.author.bot) return;
 
+    if(message.content.includes("%hug")) message.reply("Use `-hug` instead.");
+
     if(message.channel.id == "888173757011726366") {
         Words.findOne({
             words: message.content.toLowerCase()
