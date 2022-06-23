@@ -8,10 +8,10 @@ const prefix = "-";
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 
-/*mongoose.connect(process.env.MongoDBUri, {
+mongoose.connect(process.env.MongoDBUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-});*/
+});
 
 client.on("guildMemberAdd", member => {
   client.channels.cache.get("875013057208786984").send(`Member joined with name ${member.displayName}`);
