@@ -9,7 +9,7 @@ module.exports = async (Discord, client, message) => {
     if(message.content.includes("%hug")) message.reply("Use `-hug` instead.");
     if(message.content.includes("%pat")) message.reply("Use `-pat` instead.");
 
-    if(message.channel.id == "888173757011726366") {
+    if(message.channel.id == "989501486096588840") {
         Words.findOne({
             words: message.content.toLowerCase()
         }, (err, wordres) => {
